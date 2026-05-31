@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickeys' Cities</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div class="game lvl7">
+        <div class="display">
+            <h2>Guess the city!</h2>
+            <img src="../img/seventh.jpeg" alt="img">
+            <br>
+            <div class="banner"></div>
+        </div>
+        <div class="point">
+            <div class="block">6</div>
+            <span>Point</span>
+        </div>
+        <div class="letter m">M</div>
+        <div class="letter a">A</div>
+        <div class="letter d1">D</div>
+        <div class="lock1">
+            <img src="../img/lock.png" alt="img">
+        </div>
+        <div class="question1">
+            <h4 class="text1">Spain won the FIFA World Cup for the first time in&nbsp;</h4>
+            <input type="text" class="input1">
+        </div>
+        <div class="letter r">R</div>
+        <div class="letter i">I</div>
+        <div class="lock2">
+            <img src="../img/lock.png" alt="img">
+        </div>
+        <div class="question2">
+            <h4 class="text2">The most popular Spanish brand&nbsp;</h4>
+            <input type="text" class="input2">
+        </div>
+        <div class="letter d2">D</div>
+        <a href="room8.html" class="next">
+            <img src="../img/next.png" alt="img">
+        </a>
+    </div>
+
+    <script>
+        const letters = document.querySelectorAll('.game.lvl7  .letter');
+        const banner = document.querySelector('.game .display .banner');
+        const point = document.querySelector('.game .point .block');
+        const next = document.querySelector('.game .next');
+        const lock1 = document.querySelector('.game.lvl7  .lock1');
+        const question1 = document.querySelector('.game.lvl7 .question1');
+        const input2 = document.querySelector('.game.lvl7 .question2 .input2');
+        const lock2 = document.querySelector('.game.lvl7  .lock2');
+        const question2 = document.querySelector('.game.lvl7 .question2');
+        const input1 = document.querySelector('.game.lvl7 .question1 .input1');
+        const soundTrue = new Audio('../audio/true.wav');
+        const soundWrong = new Audio('../audio/wrong.wav');
+
+
+        let lock1Bool = false;
+        let lock2Bool = false;
+
+        letters[0].onclick = () => {
+            if (banner.innerText == '') {
+                banner.innerText += letters[0].innerText;
+                letters[0].style.display = 'none';
+                soundTrue.play();
+                lock1Bool = true;
+            };
+        };
+
+        letters[1].onclick = () => {
+            if (banner.innerText == 'M') {
+                banner.innerText += letters[1].innerText;
+                letters[1].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+        
+        letters[2].onclick = () => {
+            if (banner.innerText == 'MA') {
+                banner.innerText += letters[2].innerText;
+                letters[2].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+        
+        letters[3].onclick = () => {
+            if (banner.innerText == 'MAD') {
+                banner.innerText += letters[3].innerText;
+                letters[3].style.display = 'none';
+                letters[5].style.display = 'block';
+                lock2Bool = true;
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+        
+        letters[4].onclick = () => {
+            if (banner.innerText == 'MADR') {
+                banner.innerText += letters[4].innerText;
+                letters[4].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[5].onclick = () => {
+            if (banner.innerText == 'MADRI') {
+                banner.innerText += letters[5].innerText;
+                letters[5].style.display = 'none';
+                point.innerText++;
+                soundTrue.play();
+                next.style.left = '50%';
+
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        lock1.onclick = () => {
+            if (lock1Bool) {
+                question1.style = 'opacity: 1; pointer-events: auto; bottom: 20%;';
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        input1.oninput = () => {
+            if (input1.value == "2010") {
+                soundTrue.play();
+                input1.style.borderColor = 'green';
+                lock1.style.bottom = '-150px';
+                question1.style.left = '-700px';
+
+            } else {
+                input1.style.borderColor = 'red';
+            };
+        };
+
+        lock2.onclick = () => {
+            if (lock2Bool) {
+                question2.style = 'opacity: 1; pointer-events: auto; bottom: 20%;';
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        input2.oninput = () => {
+            if (input2.value == "Zara") {
+                soundTrue.play();
+                input2.style.borderColor = 'green';
+                lock2.style.bottom = '-150px';
+                question2.style.left = '-700px';
+
+            } else {
+                input2.style.borderColor = 'red';
+            };
+        };
+
+
+    </script>
+</body>
+
+</html>

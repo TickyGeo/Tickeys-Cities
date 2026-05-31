@@ -1,0 +1,886 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+    user-select: none;
+}
+
+.menu {
+    height: 100vh;
+    background: url(img/menu.jpg) no-repeat center / cover;
+    text-align: center;
+    padding-top: 6vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu h1 {
+    color: pink;
+    font: bold 6vw verdana;
+    display: flex;
+    justify-content: center;
+}
+
+.menu h1 span {
+    animation: title 1s calc(var(--i) * .1s) infinite;
+}
+
+@keyframes title {
+    50% {
+        scale: 1.2;
+        translate: 0 -15px;
+        color: darkslateblue;
+        text-shadow: 0 0 20px pink;
+    }
+}
+
+.menu .logo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 100%;
+    top: 25%;
+    rotate: 10deg;
+    animation: logo 1s forwards, second 1s infinite;
+}
+
+@keyframes logo {
+    50% {
+        left: 20%;
+    }
+
+    100% {
+        left: 25%;
+    }
+}
+
+@keyframes second {
+    50% {
+        rotate: 1deg;
+    }
+
+    50% {
+        scale: 1.1;
+    }
+}
+
+.menu .control {
+    margin-top: 3vw;
+}
+
+.menu .control .btn {
+    width: 300px;
+    height: 100px;
+    border-radius: 30px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+.menu .control .btn.play {
+    background: url(img/play.png) no-repeat center / cover;
+}
+
+.menu .control .btn:hover {
+    box-shadow: 0 0 20px pink;
+    rotate: -5deg;
+    scale: 1.1;
+    filter: hue-rotate(20deg);
+}
+
+.menu .control .btn:active {
+    scale: 1.05;
+    filter: hue-rotate(40deg) brightness(1.2);
+}
+
+.menu .control .btn.exit {
+    background: url(img/exit.png) no-repeat center / cover;
+    margin-top: 25px;
+}
+
+.menu .control .exit:hover {
+    box-shadow: 0 0 20px pink;
+    rotate: -5deg;
+    scale: 1.1;
+    filter: hue-rotate(20deg);
+}
+
+.menu .control .exit:active {
+    scale: 1.05;
+    filter: hue-rotate(40deg) brightness(1.2);
+}
+
+.game {
+    height: 100vh;
+    background: url(img/game.jpg) no-repeat center / cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.game .display {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    translate: -50%;
+    text-align: center;
+}
+
+.game .display img {
+    border-radius: 30px;
+    width: 550px;
+    height: 320px;
+}
+
+.game .display h2 {
+    font: bold 2.5vw verdana;
+    margin-bottom: 30px;
+    -webkit-text-stroke: 2px plum;
+    color: purple;
+    text-shadow: 0 0 20px purple;
+}
+
+.game .display .banner {
+    padding: 0 30px;
+    height: 60px;
+    background: pink;
+    border-radius: 20px;
+    margin-top: 5px;
+    font: bold 3vw/60px verdana;
+    color: black;
+    display: inline-block;
+}
+
+.game .point {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: center;
+}
+
+.game .point .block {
+    width: 90px;
+    height: 90px;
+    background: url(img/point.png) no-repeat center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: bold 2.5vw verdana;
+    color: pink;
+    -webkit-text-stroke: 2px black;
+}
+
+.game .point span {
+    font: bold 1.8vw verdana;
+    color: pink;
+    -webkit-text-stroke: 2px black;
+}
+
+.game .letter {
+    position: absolute;
+    bottom: 5%;
+    font: bold 4vw verdana;
+    background: linear-gradient(45deg, pink, purple);
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 40% 20%;
+    box-shadow: 0 3px 11px darkslateblue;
+    color: white;
+    text-shadow: 0 5px 7px black;
+    -webkit-text-stroke: 1px purple;
+    transition: .3s;
+}
+
+.game .letter:active {
+    scale: 1.1;
+    filter: hue-rotate(20deg);
+}
+
+.game.lvl1 .letter.y {
+    left: 55%;
+}
+
+.game.lvl1 .letter.e1 {
+    left: 35%;
+}
+
+.game.lvl1 .letter.r {
+    left: 15%;
+}
+
+.game.lvl1 .letter.e2 {
+    left: 45%;
+}
+
+.game.lvl1 .letter.v {
+    left: 65%;
+}
+
+.game.lvl1 .letter.a {
+    left: 25%;
+}
+
+.game.lvl1 .letter.n {
+    left: 75%;
+}
+
+.game .next {
+    position: absolute;
+    bottom: 15%;
+    left: -50%;
+    translate: -50%;
+    transition: .3s;
+}
+
+.game .next img {
+    width: 280px;
+    height: 100px;
+    border-radius: 40px;
+}
+
+.game .next:hover {
+    filter: hue-rotate(25deg) brightness(1.1);
+    scale: 1.005;
+}
+
+
+
+.game.lvl2 .letter.n1 {
+    left: 12%;
+}
+
+.game.lvl2 .letter.o1 {
+    left: 22%;
+}
+
+.game.lvl2 .letter.n2 {
+    left: 32%;
+}
+
+.game.lvl2 .letter.o2 {
+    left: 42%;
+}
+
+.game.lvl2 .letter.d {
+    left: 52%;
+}
+
+.game.lvl2 .letter.l {
+    left: 62%;
+}
+
+.game.lvl2 .letter.x {
+    left: 72%;
+}
+
+.game.lvl2 .letter.q {
+    left: 82%;
+}
+
+.game.lvl3 .letter.s {
+    left: 1%;
+}
+
+.game.lvl3 .letter.b {
+    left: 7%;
+}
+
+.game.lvl3 .letter.o {
+    left: 13%;
+}
+
+.game.lvl3 .letter.c {
+    left: 19%;
+}
+
+.game.lvl3 .letter.m {
+    left: 25%;
+}
+
+.game.lvl3 .letter.e {
+    left: 64%;
+}
+
+.game.lvl3 .letter.h {
+    left: 70%;
+}
+
+.game.lvl3 .letter.r {
+    left: 76%;
+}
+
+.game.lvl3 .letter.u {
+    left: 82%;
+}
+
+.game.lvl3 .letter.a {
+    left: 88%;
+}
+
+.game.lvl3 .letter.t {
+    left: 94%;
+}
+
+.game.lvl4 .letter.m {
+    left: 6%;
+}
+
+.game.lvl4 .letter.o1 {
+    left: 16%;
+}
+
+.game.lvl4 .letter.o2 {
+    left: 26%;
+    display: none;
+}
+
+.game.lvl4 .letter.e {
+    left: 36%;
+}
+
+.game.lvl4 .letter.g {
+    left: 46%;
+}
+
+.game.lvl4 .letter.p {
+    left: 56%;
+}
+
+.game.lvl4 .letter.w {
+    left: 66%;
+}
+
+.game.lvl4 .letter.c {
+    left: 76%;
+}
+
+.game.lvl4 .letter.s {
+    left: 86%;
+}
+
+.game.lvl5 .letter.r {
+    left: 6%;
+}
+
+.game.lvl5 .letter.e {
+    left: 16%;
+}
+
+.game.lvl5 .letter.t {
+    left: 26%;
+}
+
+.game.lvl5 .letter.s {
+    left: 36%;
+}
+
+.game.lvl5 .letter.a1 {
+    left: 46%;
+}
+
+.game.lvl5 .letter.m2 {
+    left: 56%;
+    display: none;
+}
+
+.game.lvl5 .letter.a2 {
+    left: 66%;
+    display: none;
+}
+
+.game.lvl5 .letter.m1 {
+    left: 76%;
+}
+
+.game.lvl5 .letter.d {
+    left: 86%;
+}
+
+.game.lvl5 .bee {
+    position: absolute;
+    bottom: 18%;
+    height: 150px;
+    right: -200px;
+    animation: bee 10s linear infinite;
+    cursor: pointer;
+}
+
+.game.lvl5 .bee:hover {
+    filter: hue-rotate(300deg);
+}
+
+@keyframes bee {
+    to {
+        right: 120%;
+    }
+}
+
+.game.lvl6 .letter.k {
+    left: 1%;
+}
+
+.game.lvl6 .letter.y {
+    left: 38%;
+}
+
+.game.lvl6 .letter.o2 {
+    left: 20%;
+    display: none;
+}
+
+.game.lvl6 .letter.o1 {
+    left: 45%;
+}
+
+.game.lvl6 .letter.t {
+    left: 21%;
+}
+
+.game.lvl6 .letter.d {
+    left: 65%;
+
+}
+
+.game.lvl6 .letter.a {
+    left: 31%;
+}
+
+.game.lvl6 .letter.r {
+    left: 80%;
+}
+
+.game.lvl6 .letter.e {
+    left: 90%;
+}
+
+.game.lvl6 .letter.m {
+    left: 55%;
+    display: none;
+}
+
+.game.lvl6 .sakura {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: 10%;
+    bottom: 29.5%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.game.lvl6 .sakura:hover {
+    filter: hue-rotate(200deg);
+}
+
+.game.lvl6 .sakura:hover {
+    filter: hue-rotate(200deg);
+}
+
+.game.lvl6 .lock {
+    position: absolute;
+    left: 37%;
+    bottom: 4.7%;
+    width: 100px;
+    height: 100px;
+    background: #0009;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.game.lvl6 .lock img {
+    height: 80px;
+    opacity: .1;
+    transition: .3s;
+}
+
+.game.lvl6 .lock:hover {
+    background: rgb(140, 107, 134);
+}
+
+.game.lvl6 .lock:hover img {
+    opacity: 1;
+}
+
+.game.lvl6 .question {
+    position: absolute;
+    left: 32%;
+    bottom: 8%;
+    background: black;
+    padding: 8px 15px;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s;
+}
+
+.game.lvl6 .question h4 {
+    font: bold 20px sans-serif;
+    color: pink;
+}
+
+.game.lvl6 .question .input {
+    width: 90px;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 35px;
+    font: bold 24px sans-serif;
+    text-align: center;
+    color: black;
+    background: pink;
+}
+
+
+.game.lvl7 .letter.m {
+    left: 1%;
+}
+
+.game.lvl7 .letter.a {
+    left: 37.7%;
+}
+
+.game.lvl7 .letter.d1 {
+    left: 60%;
+}
+
+.game.lvl7 .letter.r {
+    left: 45%;
+}
+
+.game.lvl7 .letter.d2 {
+    left: 21%;
+    display: none;
+}
+
+.game.lvl7 .letter.i {
+    left: 70%;
+}
+
+.game.lvl7 .lock1 {
+    position: absolute;
+    left: 37%;
+    bottom: 4.7%;
+    width: 100px;
+    height: 100px;
+    background: #0009;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.game.lvl7 .lock1 img {
+    height: 80px;
+    opacity: .1;
+    transition: .3s;
+}
+
+.game.lvl7 .lock1:hover {
+    background: rgb(140, 107, 134);
+}
+
+.game.lvl7 .lock1:hover img {
+    opacity: 1;
+}
+
+.game.lvl7 .question1 {
+    position: absolute;
+    left: 22%;
+    bottom: 8%;
+    background: black;
+    padding: 8px 15px;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s;
+}
+
+.game.lvl7 .question1 .text1 {
+    font: bold 20px sans-serif;
+    color: pink;
+}
+
+.game.lvl7 .question1 .input1 {
+    width: 90px;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 35px;
+    font: bold 24px sans-serif;
+    text-align: center;
+    color: black;
+    background: pink;
+}
+
+.game.lvl7 .lock2 {
+    position: absolute;
+    left: 68.8%;
+    bottom: 4.7%;
+    width: 100px;
+    height: 100px;
+    background: #0009;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.game.lvl7 .lock2 img {
+    height: 80px;
+    opacity: .1;
+    transition: .3s;
+}
+
+.game.lvl7 .lock2:hover {
+    background: rgb(140, 107, 134);
+}
+
+.game.lvl7 .lock2:hover img {
+    opacity: 1;
+}
+
+.game.lvl7 .question2 {
+    position: absolute;
+    left: 57%;
+    bottom: 8%;
+    background: black;
+    padding: 8px 15px;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s;
+}
+
+.game.lvl7 .question2 .text2 {
+    font: bold 20px sans-serif;
+    color: pink;
+}
+
+.game.lvl7 .question2 .input2 {
+    width: 90px;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 35px;
+    font: bold 24px sans-serif;
+    text-align: center;
+    color: black;
+    background: pink;
+}
+
+
+.game.lvl8 .letter.k {
+    left: 1%;
+}
+
+.game.lvl8 .letter.a1 {
+    left: 37.7%;
+}
+
+.game.lvl8 .letter.z {
+    left: 60%;
+    display: none;
+}
+
+.game.lvl8 .letter.a2 {
+    left: 45%;
+    display: none;
+}
+
+.game.lvl8 .letter.n {
+    left: 69.5%;
+}
+
+.game.lvl8 .letter.o {
+    left: 21%;
+}
+
+.game.lvl8 .letter.s {
+    left: 80%;
+}
+
+.game.lvl8 .letter.m {
+    left: 90%;
+}
+
+.game.lvl8 .lock1 {
+    position: absolute;
+    left: 37%;
+    bottom: 4.7%;
+    width: 100px;
+    height: 100px;
+    background: #0009;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.game.lvl8 .lock1 img {
+    height: 80px;
+    opacity: .1;
+    transition: .3s;
+}
+
+.game.lvl8 .lock1:hover {
+    background: rgb(140, 107, 134);
+}
+
+.game.lvl8 .lock1:hover img {
+    opacity: 1;
+}
+
+.game.lvl8 .question1 {
+    position: absolute;
+    left: 28%;
+    bottom: 8%;
+    background: black;
+    padding: 8px 15px;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s;
+}
+
+.game.lvl8 .question1 .text1 {
+    font: bold 20px sans-serif;
+    color: pink;
+}
+
+.game.lvl8 .question1 .input1 {
+    width: 90px;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 35px;
+    font: bold 24px sans-serif;
+    text-align: center;
+    color: black;
+    background: pink;
+}
+
+.game.lvl8 .lock2 {
+    position: absolute;
+    left: 68.8%;
+    bottom: 4.7%;
+    width: 100px;
+    height: 100px;
+    background: #0009;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.game.lvl8 .lock2 img {
+    height: 80px;
+    opacity: .1;
+    transition: .3s;
+}
+
+.game.lvl8 .lock2:hover {
+    background: rgb(140, 107, 134);
+}
+
+.game.lvl8 .lock2:hover img {
+    opacity: 1;
+}
+
+.game.lvl8 .question2 {
+    position: absolute;
+    left: 55%;
+    bottom: 8%;
+    background: black;
+    padding: 8px 15px;
+    align-items: center;
+    display: flex;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s;
+}
+
+.game.lvl8 .question2 .text2 {
+    font: bold 20px sans-serif;
+    color: pink;
+}
+
+.game.lvl8 .question2 .input2 {
+    width: 90px;
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 35px;
+    font: bold 24px sans-serif;
+    text-align: center;
+    color: black;
+    background: pink;
+}
+
+
+.game.lvl8 .bars {
+    position: absolute;
+    width: 350px;
+    height: 300px;
+    left: 0%;
+    bottom: 18%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.game.lvl8 .bars:hover {
+    filter:brightness(1.2)
+}
+
+.game .winner {
+    position: absolute;
+    bottom: 123%;
+    left: 50%;
+    translate: -50%;
+    font: bold 5vw verdana; 
+    color: rgb(42, 114, 231);
+    text-shadow: 0 5px 3px black, -2px 8px 10px burlywood;
+    animation: win 1s infinite;
+    opacity: 0;
+    transition: .5s;
+}
+
+@keyframes win {
+    50% { scale: 1.3; }
+}
+
+.game .back {
+    position: absolute;
+    bottom: -105%;
+    left: 50%;
+    translate: -50%;
+    font: bold 4vw cursive; 
+    border-radius: 30px;
+    color: rgb(42, 114, 231);
+    text-shadow: 0 5px 3px black, -2px 8px 10px burlywood;
+    text-decoration: none;
+    transition: .5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.game .back:hover {
+    color: pink;
+}
+

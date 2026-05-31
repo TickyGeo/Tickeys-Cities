@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickeys' Cities</title>
+    <link rel="shortcut icon" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="menu">
+        <h1>
+            <span style="--i: 1;">T</span>
+            <span style="--i: 2;">i</span>
+            <span style="--i: 3;">c</span>
+            <span style="--i: 4;">k</span>
+            <span style="--i: 5;">e</span>
+            <span style="--i: 6;">y</span>
+            <span style="--i: 7;">s</span>
+            <span style="--i: 8;">'</span>
+            <span style="--i: 9;">&nbsp;</span>
+            <span style="--i: 10;">C</span>
+            <span style="--i: 11;">i</span>
+            <span style="--i: 12;">t</span>
+            <span style="--i: 13;">i</span>
+            <span style="--i: 14;">e</span>
+            <span style="--i: 15;">s</span>
+        </h1>
+        <img src="img/logo.png" alt="image" class="logo">
+        <div class="control">
+            <div class="btn play"></div>
+            <div class="btn exit"></div>
+        </div>
+    </div>
+    <script>
+        const playBtn = document.querySelector('.menu .control .btn.play');
+        const exitBtn = document.querySelector('.menu .control .btn.exit');
+        const soundTrue = new Audio('audio/true.wav');
+
+        playBtn.onclick = () => {
+            soundTrue.play();
+            soundTrue.ontimeupdate = () => soundTrue.currentTime > .001 ? location.href = 'room/room1.html' : '';
+        };
+
+        exitBtn.onclick = () => {
+            soundTrue.play();
+            soundTrue.ontimeupdate = () => soundTrue.currentTime > .001 ? location.href = 'https://www.youtube.com/channel/UCovWdF_x2xnFlKNMHKwIyiA' : '';
+        };
+        
+    </script>
+</body>
+
+</html>

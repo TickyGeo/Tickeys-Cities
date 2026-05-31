@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickeys' Cities</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div class="game lvl3">
+        <div class="display">
+            <h2>Guess the city!</h2>
+            <img src="../img/third.jpg" alt="img">
+            <br>
+            <div class="banner"></div>
+        </div>
+        <div class="point">
+            <div class="block">2</div>
+            <span>Point</span>
+        </div>
+        <div class="letter b">B</div>
+        <div class="letter u">U</div>
+        <div class="letter c">C</div>
+        <div class="letter h">H</div>
+        <div class="letter a">A</div>
+        <div class="letter r">R</div>
+        <div class="letter e">E</div>
+        <div class="letter s">S</div>
+        <div class="letter t">T</div>
+        <div class="letter m">M</div>
+        <div class="letter o">O</div>
+        <a href="room4.html" class="next">
+            <img src="../img/next.png" alt="img">
+        </a>
+    </div>
+
+    <script>
+        const letters = document.querySelectorAll('.game.lvl3 .letter');
+        const banner = document.querySelector('.game .display .banner');
+        const point = document.querySelector('.game .point .block');
+        const next = document.querySelector('.game .next');
+        const soundTrue = new Audio('../audio/true.wav');
+        const soundWrong = new Audio('../audio/wrong.wav');
+
+        letters[0].onclick = () => {
+            if (banner.innerText == '') {
+                banner.innerText += letters[0].innerText;
+                letters[0].style.display = 'none';
+                soundTrue.play();
+            };
+        };
+
+        letters[1].onclick = () => {
+            if (banner.innerText == 'B') {
+                banner.innerText += letters[1].innerText;
+                letters[1].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[2].onclick = () => {
+            if (banner.innerText == 'BU') {
+                banner.innerText += letters[2].innerText;
+                letters[2].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[3].onclick = () => {
+            if (banner.innerText == 'BUC') {
+                banner.innerText += letters[3].innerText;
+                letters[3].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[4].onclick = () => {
+            if (banner.innerText == 'BUCH') {
+                banner.innerText += letters[4].innerText;
+                letters[4].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[5].onclick = () => {
+            if (banner.innerText == 'BUCHA') {
+                banner.innerText += letters[5].innerText;
+                letters[5].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+                letters[6].onclick = () => {
+            if (banner.innerText == 'BUCHAR') {
+                banner.innerText += letters[6].innerText;
+                letters[6].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+                letters[7].onclick = () => {
+            if (banner.innerText == 'BUCHARE') {
+                banner.innerText += letters[7].innerText;
+                letters[7].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+                letters[8].onclick = () => {
+            if (banner.innerText == 'BUCHARES') {
+                banner.innerText += letters[8].innerText;
+                letters[8].style.display = 'none';
+                soundTrue.play();
+                                    point.innerText++;
+                    next.style.left = '50%';
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[9].onclick = () => soundWrong.play();
+
+        letters[10].onclick = () => soundWrong.play();
+
+    </script>
+</body>
+
+</html>

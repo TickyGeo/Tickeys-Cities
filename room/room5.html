@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickeys' Cities</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div class="game lvl5">
+        <div class="display">
+            <h2>Guess the city!</h2>
+            <img src="../img/fifth.jpeg" alt="img">
+            <br>
+            <div class="banner"></div>
+        </div>
+        <div class="point">
+            <div class="block">4</div>
+            <span>Point</span>
+        </div>
+        <div class="letter a1">A</div>
+        <div class="letter m1">M</div>
+        <div class="letter s">S</div>
+        <div class="letter t">T</div>
+        <div class="letter e">E</div>
+        <div class="letter r">R</div>
+        <div class="letter d">D</div>
+        <div class="letter a2">A</div>
+        <div class="letter m2">M</div>
+        <img src="../img/bee.gif" alt="img" class="bee">
+        <a href="room6.html" class="next">
+            <img src="../img/next.png" alt="img">
+        </a>
+    </div>
+
+    <script>
+        const letters = document.querySelectorAll('.game.lvl5 .letter');
+        const banner = document.querySelector('.game .display .banner');
+        const point = document.querySelector('.game .point .block');
+        const next = document.querySelector('.game .next');
+        const bee = document.querySelector('.game .bee');
+        const soundTrue = new Audio('../audio/true.wav');
+        const soundWrong = new Audio('../audio/wrong.wav');
+        const buzz = new Audio('../audio/buzz.mp3');
+
+        let beeBool = false;
+
+        letters[0].onclick = () => {
+            if (banner.innerText == '') {
+                banner.innerText += letters[0].innerText;
+                letters[0].style.display = 'none';
+                letters[7].style.display = 'block';
+                soundTrue.play();
+            };
+        };
+
+        letters[1].onclick = () => {
+            if (banner.innerText == 'A') {
+                banner.innerText += letters[1].innerText;
+                letters[1].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[2].onclick = () => {
+            if (banner.innerText == 'AM') {
+                banner.innerText += letters[2].innerText;
+                letters[2].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[3].onclick = () => {
+            if (banner.innerText == 'AMS') {
+                banner.innerText += letters[3].innerText;
+                letters[3].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[4].onclick = () => {
+            if (banner.innerText == 'AMST') {
+                banner.innerText += letters[4].innerText;
+                letters[4].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[5].onclick = () => {
+            if (banner.innerText == 'AMSTE') {
+                banner.innerText += letters[5].innerText;
+                letters[5].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[6].onclick = () => {
+            if (banner.innerText == 'AMSTER') {
+                banner.innerText += letters[6].innerText;
+                letters[6].style.display = 'none';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        letters[7].onclick = () => {
+            if (banner.innerText == 'AMSTERD') {
+                banner.innerText += letters[7].innerText;
+                letters[7].style.display = 'none';
+                beeBool = true;
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+
+        letters[8].onclick = () => {
+            if (banner.innerText == 'AMSTERDA') {
+                banner.innerText += letters[8].innerText;
+                letters[8].style.display = 'none';
+                point.innerText++;
+                next.style.left = '50%';
+                soundTrue.play();
+            } else {
+                soundWrong.play();
+            };
+        };
+
+        bee.onclick = () => {
+            if (beeBool) {
+                letters[8].style.display = 'block';
+                bee.style.display = 'none';
+                buzz.play();
+            };
+        };
+
+    </script>
+</body>
+
+</html>
